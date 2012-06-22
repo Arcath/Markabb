@@ -1,0 +1,2 @@
+Markabb.register_tag :url, Markabb::Tag.new(/\[url\](.*?)\[\/url\]/, '<a href="\1" target="config[:url_target]">\1</a>'), :link
+Markabb.register_tag :url_with_title, Markabb::Tag.new(/\[url=(.*?)\](.*?)\[\/url\]/, '<a href="\1" target="config[:url_target]">\2</a>'), :link

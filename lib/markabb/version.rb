@@ -1,3 +1,4 @@
 module Markabb
-  VERSION = "0.0.1"
+    # Markabbs Version Number
+    VERSION = "0.0.1"
 end
