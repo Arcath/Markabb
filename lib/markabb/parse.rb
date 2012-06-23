@@ -11,6 +11,19 @@ module Markabb
         else
             raise "Please configure Markabb before using it" unless @config
         end
-        Parser.new(config, s).output
+        output = Parser.new(config, s).output
+        if needs_html_safe?
+            return output.html_safe
+        else
+            return output
+        end
+    end
+    
+    def self.needs_html_safe?
+        if defined? Rails
+            return Rails.version =~ /^3\./
+        else
+            return false
+        end
     end
 end
