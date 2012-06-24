@@ -36,4 +36,14 @@ describe Markabb, "#parse" do
             c.disable_html = false
         end.should eq "<b>BOLD</b>"
     end
+    
+    it "should add line breaks" do
+        default_config
+        Markabb.parse("this\nthat").should eq "this<br />that"
+    end
+    
+    it "should correct line breaks" do
+        default_config
+        Markabb.parse("this\nthat\n[table]\n[tr][/tr]\n[/table]").should eq "this<br />that<br /><table width=\"100%\"><tr></tr></table>"
+    end
 end

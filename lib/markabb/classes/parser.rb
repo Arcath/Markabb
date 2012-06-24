@@ -16,6 +16,7 @@ module Markabb
         
         def parse
             disable_html if @config.disable_html
+            add_line_breaks
             run_tags
         end
         
@@ -39,6 +40,11 @@ module Markabb
         
         def disable_html
             @output = @output.gsub("<","&lt;").gsub(">","&gt;")
+        end
+        
+        def add_line_breaks
+            @output = @output.gsub(/\n/, '<br />')
+            @output = @output.gsub(/<br \/>\[(ul|li|ol|tr|td|th)/,'[\1').gsub(/<br \/>\[\/(ul|li|ol|table|tr|td|th)/,'[/\1')
         end
     end
 end
