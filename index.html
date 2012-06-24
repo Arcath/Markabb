@@ -30,7 +30,25 @@
         <section id="main-content">
           <h1>Markabb</h1>
 
-<p>Provides BBCode for Ruby and Rails</p>
+		<p>All Ruby BBCode parser for Ruby and Rails.</p>
+		<h2>Install</h2>
+		<p>To install Markabb add it to your gemfile</p>
+		<p><code>gem 'markabb'</code></p>
+		<p>and run a <code>bundle install</code> to get it.</p>
+		<p>If you want to use Markabb without bundler run <code>gem install markabb</code> and add <code>require 'markabb'</code> to your code.</p>
+		<h2>Usage</h2>
+		<h3>Configuring</h3>
+		<p>Before you can use Markabb you need to configure it, to do this call <code>Markabb.configure</code> and pass a block to it. To use the default config pass an empty block.</p>
+		<p><code>Markabb.configure do |c|<br />
+			end</code></p>
+		<p>The most common config is disable_TAGNAME which allows you to disable a specific tag or group, for example to disable the bold tag you would use <code>c.disable_bold = true</code>.</p>
+		<h3>Parsing</h3>
+		<p>To parse a string simply pass it to <code>Markabb.parse</code>, the return value will be the parsed HTML. You can pass config to parse in a block like this:</p>
+		<p><code>Markabb.parse "[b]Bold Text[/b]" do |c|<br />
+			c.disable_bold = true<br />
+		end</code></p>
+		<h2>More Info</h2>
+		For more information please consult the <a href="https://github.com/Arcath/Markabb/wiki">wiki</a>, if you have any issues open them on the <a href="https://github.com/Arcath/Markabb/issues">github repo</a>.
         </section>
 
         <aside id="sidebar">
@@ -41,6 +59,10 @@
           <a href="https://github.com/Arcath/Markabb/tarball/master" class="button">
             <small>Download</small>
             .tar.gz file
+          </a>
+          <a href="https://rubygems.org/gems/markabb" class="button">
+            <small>Download</small>
+             Rubygems
           </a>
 
           <p class="repo-owner"><a href="https://github.com/Arcath/Markabb"></a> is maintained by <a href="https://github.com/Arcath">Arcath</a>.</p>
