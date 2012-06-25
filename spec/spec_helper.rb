@@ -1,7 +1,7 @@
 # Macros
 require "macros/formatting_macros"
 # Require Markabb
-require 'lib/markabb'
+require 'markabb'
 
 module Markabb
     def self.blank_config
