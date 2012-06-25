@@ -5,6 +5,7 @@ require "markabb/version"
 # Clases
 require "markabb/classes/parser"
 require "markabb/classes/tag"
+require "markabb/classes/string"
 
 # Main Markabb Module, all code is a sub of this
 module Markabb
