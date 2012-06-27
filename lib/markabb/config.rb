@@ -1,6 +1,6 @@
 module Markabb
     # The config class, inherits from Hash
-    # Borrowed from mina (https://github.com/nadarei/mina)
+    # Based on the config class from mina (https://github.com/nadarei/mina)
     class Config < Hash
         def initialize
             super
