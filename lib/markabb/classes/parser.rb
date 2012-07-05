@@ -18,12 +18,17 @@ module Markabb
             disable_html if @config.disable_html
             add_line_breaks
             highlight_syntax
+            no_bbc_tag
             run_tags
         end
         
         def highlight_syntax
             highlighter = SyntaxHighlighters[@config.syntax_highlighter].new(@config)
             @output = highlighter.run(@output)
+        end
+        
+        def no_bbc_tag
+            apply_tag(Markabb::NobbcTag.new) unless @config[:disable_nobbc]
         end
         
         def run_tags

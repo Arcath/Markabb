@@ -12,4 +12,4 @@ module Markabb
     end
 end
 
-Markabb.register_tag :nobbc, Markabb::NobbcTag.new
+# Markabb.register_tag :nobbc, Markabb::NobbcTag.new
