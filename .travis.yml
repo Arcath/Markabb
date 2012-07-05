@@ -8,5 +8,9 @@ rvm:
 env:
  - "rake=0.8"
 script: "bundle exec rspec"
+matrix:
+  allow-failures:
+    - rvm: rbx-18mode
+    - rvm: rbx-19mode
 notifications:
   email: false
