@@ -26,6 +26,10 @@ module Markabb
     def self.config
         @config
     end
+    
+    # Contains all stock provided syntax highlighters
+    module Highlighters
+    end
 end
 
 # Tags

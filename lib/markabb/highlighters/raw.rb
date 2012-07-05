@@ -1,9 +1,15 @@
 module Markabb
     module Highlighters
+        # Raw syntax highlighter
+        #
+        # Just wraps the code in a specified tag.
         class Raw < Markabb::SyntaxHighlighter
+            # Parses the inputted text, takes 2 options, the language of the code and the code.
             def parse(lang, s)
                return "<#{open_tag}>[nobbc]#{s}[/nobbc]</#{close_tag}>" 
             end
+            
+            private
             
             def open_tag
                 tag = (@config.raw_highlighter_tag || "code")
