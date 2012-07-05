@@ -25,4 +25,12 @@ describe Markabb::Highlighters::Raw do
         return bar
         end[/code]".markabb.should eq "<div class=\"well\">def foo(bar)<br />        return bar<br />        end</div>"
     end
+    
+    it "should be able to parse 2 code tags" do
+        default_config
+        "[code lang=ruby]def foo(bar)
+        return bar
+        end[/code] foo bar foo
+        [code lang=ruby]:foo => :bar[/code]".markabb.should eq "<code>def foo(bar)<br />        return bar<br />        end</code> foo bar foo<br />        <code>:foo =&gt; :bar</code>"
+    end
 end

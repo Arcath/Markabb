@@ -26,7 +26,7 @@ module Markabb
         def run(s)
             out = s
             out.scan(/\[code lang=(.+?)\](.+?)\[\/code\]/m).each do |lang, parse|
-                out = parse(lang, parse)
+                out = out.gsub("[code lang=#{lang}]#{parse}[/code]", parse(lang, parse))
             end
             return out
         end
