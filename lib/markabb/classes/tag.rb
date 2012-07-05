@@ -15,7 +15,9 @@ module Markabb
     #
     # {:bar => {:foo => Markabb::Tag}}
     def self.register_tag(name, tag, group = nil)
+        tag.name = name
         if group
+            tag.group = group
             Tags[group] ||= {}
             Tags[group][name] = tag
         else
@@ -33,6 +35,7 @@ module Markabb
     # Takes a REGEX matcher and a string to replace it with
     class Tag
         attr_reader :matcher, :replace
+        attr_accessor :name, :group
         
         # Creates the Markabb::Tag object
         def initialize(matcher, replace)

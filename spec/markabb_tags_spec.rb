@@ -18,4 +18,17 @@ describe Markabb::Tag do
     it "should have the bold tag" do
         Markabb::Tags[:formatting][:bold].should be_a Markabb::Tag
     end
+    
+    it "should have a name" do
+        sample_tag.name.should be_a Symbol
+    end
+    
+    it "should have a group" do
+        sample_tag.group.should be_a Symbol
+    end
+    
+    it "should have the nobbc tag" do
+        default_config
+        "blah [nobbc][b]bold[/b][/nobbc] blah".markabb.should eq "blah &#91;b&#93bold&#91;/b&#93 blah"
+    end
 end

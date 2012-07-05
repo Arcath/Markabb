@@ -42,6 +42,7 @@ module Markabb
             self[:url_target] ||= "_BLANK"
             self[:image_alt] ||= "Posted Image"
             self[:table_width] ||= "100%"
+            self[:syntax_highlighter] ||= :raw
         end
     end
 end
