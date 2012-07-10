@@ -39,7 +39,13 @@ module Markabb
         
         # Creates the Markabb::Tag object
         def initialize(matcher, replace)
-            @matcher = matcher
+            if matcher.is_a? String
+                @matcher = generate_matcher(matcher)
+            elsif matcher.is_a? Regexp
+                @matcher = matcher
+            else
+                raise 'matcher is not valid'
+            end
             @replace = replace
         end
         
@@ -50,15 +56,18 @@ module Markabb
             s.gsub(@matcher, generate_replacement(@replace, config))
         end
         
-        # Generates the replacement string
-        # 
-        # Takes the replacement string and a config object
+        private
+        
         def generate_replacement(replace, config)
             if replace.scan(/config\[:(.*?)\]/) != [] then
                 return replace.gsub(/config\[(.*?)\]/, config[$1.to_sym])
             else
                 return replace
             end
+        end
+        
+        def generate_matcher(tag)
+            /\[#{tag}\](.*?)\[\/#{tag}\]/
         end
     end
 end

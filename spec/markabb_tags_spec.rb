@@ -31,4 +31,14 @@ describe Markabb::Tag do
         default_config
         "blah [nobbc][b]bold[/b][/nobbc] blah".markabb.should eq "blah &#91;b&#93bold&#91;/b&#93 blah"
     end
+    
+    it "should support simple tag creators" do
+        tag = Markabb::Tag.new('bi', '<b><i>\1</i></b>')
+    end
+    
+    it "should have a working simple tag" do
+        default_config
+        tag = Markabb::Tag.new('bi', '<b><i>\1</i></b>')
+        tag.run("[bi]test[/bi]", Markabb.config).should eq "<b><i>test</i></b>"
+    end
 end
