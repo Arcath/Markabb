@@ -1,2 +1,2 @@
-Markabb.register_tag :image, Markabb::Tag.new(/\[img\](.*?)\[\/img\]/, '<img src="\1" alt="config[:image_alt]" />'), :image
+Markabb.register_tag :image, Markabb::Tag.new('img', '<img src="\1" alt="config[:image_alt]" />'), :image
 Markabb.register_tag :image_with_alt, Markabb::Tag.new(/\[img alt=(.*?)\](.*?)\[\/img\]/, '<img src="\2" alt="\1" />'), :image

@@ -41,4 +41,8 @@ describe Markabb::Tag do
         tag = Markabb::Tag.new('bi', '<b><i>\1</i></b>')
         tag.run("[bi]test[/bi]", Markabb.config).should eq "<b><i>test</i></b>"
     end
+    
+    it "should raise an exception if a bad matcher is given" do
+        lambda { Markabb::Tag.new(7, '<b><i>\1</i></b>') }.should raise_exception
+    end
 end
