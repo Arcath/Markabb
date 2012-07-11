@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby -wKU
+require 'benchmark'
+$:.push File.expand_path("../lib", __FILE__)
+require 'markabb'
+puts "Benchmarking Markabb"
+
+Markabb.configure do |c|
+end
+
+simple_string = "[b]Bold[/b]"
+multi_format = "[b]bold [i]italic[/i][/b][u]underline[/u]"
+
+Benchmark.bm do |x|
+    x.report("1 string:") { simple_string.markabb }
+    x.report("100 strings:") { 100.times do simple_string.markabb end }
+    x.report("1 multi format:") { multi_format.markabb }
+    x.report("100 multi formats:") { 100.times do multi_format.markabb end }
+    x.report("1000 string parses") { 500.times do multi_format.markabb
+    simple_string.markabb end }
+end

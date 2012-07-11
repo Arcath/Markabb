@@ -3,6 +3,7 @@ require "markabb/config"
 require "markabb/parse"
 require "markabb/version"
 # Clases
+require "markabb/classes/callback"
 require "markabb/classes/parser"
 require "markabb/classes/tag"
 require "markabb/classes/string"

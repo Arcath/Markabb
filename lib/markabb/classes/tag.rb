@@ -46,17 +46,31 @@ module Markabb
             else
                 raise 'matcher is not valid'
             end
-            @replace = replace
+            if replace.is_a? String
+                @replace = replace
+            elsif replace.is_a? Markabb::Callback
+                @callback = replace
+            else
+                raise 'Replace is not valid'
+            end
         end
         
         # Runs the tag on the input string
         #
         # Takes the target string and a Markabb::Config object
         def run(s, config)
-            s.gsub(@matcher, generate_replacement(@replace, config))
+            if @replace
+                return s.gsub(@matcher, generate_replacement(@replace, config))
+            elsif @callback
+                return run_callback(s)
+            end
         end
         
         private
+        
+        def run_callback(s)
+            s.gsub(@matcher) { |match| @callback.run(match.scan(@matcher).first) }
+        end
         
         def generate_replacement(replace, config)
             if replace.scan(/config\[:(.*?)\]/) != [] then

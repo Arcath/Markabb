@@ -17,3 +17,15 @@ end
 def sample_tag
     Markabb.register_tag :test, Markabb::Tag.new(/foo/, 'bar'), :group
 end
+
+def sample_proc
+    Proc.new { |s| upcase(s) }
+end
+
+def sample_callback
+    Markabb::Callback.new(sample_proc)
+end
+
+def upcase(s)
+    s.upcase
+end
