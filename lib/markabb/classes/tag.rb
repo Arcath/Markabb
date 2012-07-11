@@ -49,6 +49,7 @@ module Markabb
             if replace.is_a? String
                 @replace = replace
             elsif replace.is_a? Markabb::Callback
+                @replace = false
                 @callback = replace
             else
                 raise 'Replace is not valid'

@@ -6,7 +6,7 @@ describe Markabb::Tag do
     end
     
     it "should allow tag registration" do
-        Markabb.register_tag :foo, Markabb::Tag.new(/foo/, 'bar')
+        Markabb.register_tag :foo, Markabb::Tag.new(/foo/, 'foo')
         Markabb::Tags[:foo].should be_a Markabb::Tag
     end
     

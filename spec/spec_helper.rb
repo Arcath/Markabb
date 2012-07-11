@@ -15,7 +15,7 @@ def default_config
 end
 
 def sample_tag
-    Markabb.register_tag :test, Markabb::Tag.new(/foo/, 'bar'), :group
+    Markabb.register_tag :test, Markabb::Tag.new(/123/, '456'), :group
 end
 
 def sample_proc
