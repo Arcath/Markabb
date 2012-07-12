@@ -1,3 +1,6 @@
+# Gems
+require 'rubygems'
+require 'coderay'
 # Top Level Requires
 require "markabb/config"
 require "markabb/parse"
@@ -9,6 +12,7 @@ require "markabb/classes/tag"
 require "markabb/classes/string"
 require "markabb/classes/syntax_highlighter"
 # Highlighters
+require "markabb/highlighters/coderay"
 require "markabb/highlighters/raw"
 
 # Main Markabb Module, all code is a sub of this

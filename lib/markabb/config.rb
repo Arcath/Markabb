@@ -43,6 +43,7 @@ module Markabb
             self[:image_alt] ||= "Posted Image"
             self[:table_width] ||= "100%"
             self[:syntax_highlighter] ||= :raw
+            self[:coderay_options] ||= {}
         end
     end
 end

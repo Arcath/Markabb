@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Markabb::Highlighters::Raw do
     it "should be able to parse a code tag" do
+        default_config
         "[code lang=ruby]def foo(bar)
         return bar
         end[/code]".markabb.should eq "<code>def foo(bar)<br />        return bar<br />        end</code>"
