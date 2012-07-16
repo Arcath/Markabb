@@ -14,6 +14,13 @@ require "markabb/classes/syntax_highlighter"
 # Highlighters
 require "markabb/highlighters/coderay"
 require "markabb/highlighters/raw"
+# Tags
+require "markabb/tags/formatting"
+require "markabb/tags/image"
+require "markabb/tags/link"
+require "markabb/tags/list"
+require "markabb/tags/nobbc"
+require "markabb/tags/table"
 
 # Main Markabb Module, all code is a sub of this
 module Markabb
@@ -36,11 +43,3 @@ module Markabb
     module Highlighters
     end
 end
-
-# Tags
-require "markabb/tags/formatting"
-require "markabb/tags/image"
-require "markabb/tags/link"
-require "markabb/tags/list"
-require "markabb/tags/nobbc"
-require "markabb/tags/table"
