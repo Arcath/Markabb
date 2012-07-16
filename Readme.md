@@ -9,9 +9,26 @@ To get the latest stable version install the gem by adding
 
 to your Gemfile
 
-## Documentation
+## Usage
 
-See the [Wiki](https://github.com/Arcath/Markabb/wiki) for the documentation.
+Before you can use Markabb you need to configure it. To do this create an intializer (config/intializers in rails) and pass a block to Markabb.configure like this:
+
+    Markabb.configure do |c|
+    end
+
+`c` is an instance of Markabb::Config which is used by Markabb when ever you parse a string. You can pass any config options you want here.
+
+To parse a string simply call `.markabb` on it e.g.
+
+    "[b]foo[/b] [i]bar[/i]".markabb # => <b>foo</b><i>bar</i>
+
+If you need to configure Markabb for a one off parse e.g. if you want to disable links when parsing a forum post etc... to do that pass a block to `Markabb.parse`
+
+    Markabb.parse "[b]foo[/b] [i]bar[/i]" do |c|
+        c.disable_bold = true
+    end # => [b]foo[/b] <i>bar</i>
+
+See the [Wiki](https://github.com/Arcath/Markabb/wiki) for instructions on Markabbs more advanced features like custom tags, callbacks and syntax highlighting.
 
 ## Developing & Testing
 
