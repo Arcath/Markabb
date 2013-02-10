@@ -50,7 +50,7 @@ module Markabb
         end
         
         def disable_html
-            @output = @output.gsub("<","&lt;").gsub(">","&gt;")
+            @output = @output.gsub("<","&lt;").gsub(">","&gt;").gsub(/"/, "&quot;")
         end
         
         def add_line_breaks

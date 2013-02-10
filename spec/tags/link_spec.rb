@@ -17,4 +17,9 @@ describe "Link Tags" do
         default_config
         Markabb.parse("[url=http://www.example.com]Example[/url]").should eq('<a href="http://www.example.com" target="_BLANK">Example</a>')
     end
+    
+    it "should prevent javascript injection" do
+      default_config
+      Markabb.parse('[url=" onclick="foo]Injected[/url]').should_not eq "<a href=\"\" onclick=\"foo\" target=\"_BLANK\">Injected</a>"
+    end
 end
